@@ -1,0 +1,15 @@
+# Large binary files (distributed separately)
+*.iso
+*.qcow2
+*.raw
+*.squashfs
+*.gz
+*.fd
+
+# Build artifacts
+iso-remaster/
+live-build/
+
+# OS junk
+.DS_Store
+Thumbs.db
