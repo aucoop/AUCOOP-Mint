@@ -116,4 +116,4 @@ echo -e "${CYAN}turn off the computer.${NC}"
 echo ""
 
 # Run the actual Clonezilla restore
-ocs-sr -g auto -e1 auto -e2 -c -r -j2 -batch -p reboot restoredisk aucoop-mint22.3-2026-03 "$TARGET_DISK"
+ocs-sr -g auto -e1 auto -e2 -c -r -j2 -icds -k1 -batch -p reboot restoredisk aucoop-mint22.3-2026-03 "$TARGET_DISK"
