@@ -49,7 +49,7 @@ The install script takes a stock Linux Mint 22.x Cinnamon install and applies th
 - Firefox (replaced by Chrome)
 - LibreOffice (replaced by OnlyOffice)
 - Thunderbird, HexChat, Mint Chat, Warpinator, Webapp Manager
-- Transmission (torrent client), Seahorse (keyring GUI)
+- Transmission (torrent client), Seahorse (keyring GUI), Hypnotix
 
 ### Apps installed
 - **Google Chrome** -- default browser
@@ -59,10 +59,13 @@ The install script takes a stock Linux Mint 22.x Cinnamon install and applies th
 ### Desktop customization
 - **Theme**: Mint-Y-Blue (light mode always)
 - **Cursor**: DMZ-White (Windows-like white pointer)
-- **Wallpaper**: Default Mint wallpaper (joe-mcdaniel)
-- **Desktop shortcuts**: OnlyOffice Document, Spreadsheet, and Presentation with Microsoft-style icons
+- **Wallpaper**: AUCOOP wallpaper copied to `~/Pictures/joe-mcdaniel-ZdWhZTpd_Uw-unsplash.jpg`
+- **User image**: AUCOOP avatar set for the `aucoop` user
+- **Desktop and menu launchers**: `Word`, `Excel`, and `PowerPoint` with Microsoft-style icons and searchable keywords
+- **Panel favorites**: Chrome, Word, Excel, PowerPoint, and Software Manager pinned; Terminal not pinned
 - **Software Manager icon**: Replaced with a download-arrow icon (more intuitive)
-- **Search aliases**: "app store", "download", etc. find Software Manager in the menu
+- **Search aliases**: `app store`, `download`, `download apps`, etc. find Software Manager in the menu
+- **Menu cleanup**: hides duplicate ONLYOFFICE entry, old Matrix webapp entry, KDE-only duplicates, and Welcome Screen
 - **AUCOOP branding**: Logo installed system-wide
 
 ## Repository structure
@@ -80,13 +83,17 @@ The install script takes a stock Linux Mint 22.x Cinnamon install and applies th
 │   ├── wallpaper.sh               #   Set wallpaper
 │   ├── cursor.sh                  #   Set cursor theme
 │   ├── software-manager-icon.sh   #   Replace Software Manager icon
-│   ├── desktop-shortcuts.sh       #   OnlyOffice desktop shortcuts
+│   ├── desktop-shortcuts.sh       #   Word/Excel/PowerPoint launchers
+│   ├── panel.sh                   #   Panel favorites
 │   ├── search-aliases.sh          #   Menu search aliases
-│   └── branding.sh                #   AUCOOP logo
+│   ├── menu-cleanup.sh            #   Hide duplicate/clutter launchers
+│   └── branding.sh                #   AUCOOP logo and user avatar
 ├── assets/                        # Icons, wallpaper, logo
 │   ├── software-manager-icon.png  #   Download-arrow icon (512x512)
 │   ├── AUCOOP_logotip.png         #   AUCOOP logo banner
-│   └── icons/                     #   OnlyOffice shortcut icons (TODO)
+│   ├── user-image.jpg             #   AUCOOP user avatar
+│   ├── wallpaper.jpg              #   AUCOOP wallpaper
+│   └── icons/                     #   Office-style launcher icons
 │       ├── onlyoffice-document.png
 │       ├── onlyoffice-spreadsheet.png
 │       └── onlyoffice-presentation.png

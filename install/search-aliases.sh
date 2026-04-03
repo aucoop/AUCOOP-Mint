@@ -4,8 +4,8 @@
 # Users coming from Windows might search for "app store" or "download"
 # in the Cinnamon menu. By default, those terms don't find Software Manager.
 #
-# We create a secondary .desktop file with extra Keywords so the menu
-# search picks it up.
+# We create a secondary .desktop file with a friendlier name and extra
+# keywords so the menu search picks it up for common non-technical terms.
 
 ALIAS_DESKTOP="/usr/share/applications/mintinstall-aliases.desktop"
 
@@ -15,14 +15,14 @@ sudo tee "$ALIAS_DESKTOP" > /dev/null << 'EOF'
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Software Manager
+Name=App Store
 GenericName=App Store
-Comment=Browse and install applications
+Comment=Download Apps and install applications
 Exec=mintinstall
 Icon=mintinstall
 Terminal=false
 Categories=System;PackageManager;
-Keywords=app store;download;download apps;store;shop;market;install;applications;programs;software;
+Keywords=app store;download;download apps;store;shop;market;install;applications;programs;software;download programs;download software;find apps;
 NoDisplay=true
 EOF
 

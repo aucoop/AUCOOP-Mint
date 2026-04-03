@@ -22,7 +22,7 @@ if [ ! -f /etc/linuxmint/info ]; then
   exit 1
 fi
 
-MINT_VERSION=$(grep RELEASE /etc/linuxmint/info | cut -d= -f2)
+MINT_VERSION=$(grep '^RELEASE=' /etc/linuxmint/info | cut -d= -f2)
 echo "Detected Linux Mint $MINT_VERSION"
 
 if [[ ! "$MINT_VERSION" =~ ^22\. ]]; then
@@ -36,6 +36,10 @@ if [ "$(id -u)" -eq 0 ]; then
   echo "ERROR: Do not run this script as root. Run as the desktop user (sudo will be used where needed)."
   exit 1
 fi
+
+# Cache sudo once up front so non-interactive runs work cleanly.
+echo "Requesting sudo access..."
+sudo -v
 
 echo ""
 echo "╔══════════════════════════════════════════╗"
@@ -69,7 +73,9 @@ run_step "$INSTALL_DIR/wallpaper.sh"
 run_step "$INSTALL_DIR/cursor.sh"
 run_step "$INSTALL_DIR/software-manager-icon.sh"
 run_step "$INSTALL_DIR/desktop-shortcuts.sh"
+run_step "$INSTALL_DIR/panel.sh"
 run_step "$INSTALL_DIR/search-aliases.sh"
+run_step "$INSTALL_DIR/menu-cleanup.sh"
 run_step "$INSTALL_DIR/branding.sh"
 
 # ── Done ──────────────────────────────────────────────────────────

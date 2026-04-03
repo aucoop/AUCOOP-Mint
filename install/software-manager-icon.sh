@@ -17,10 +17,10 @@ if [ ! -f "$SOURCE_ICON" ]; then
   return 0
 fi
 
-# Ensure ImageMagick is available for resizing
 if ! command -v convert &>/dev/null; then
-  echo "  Installing ImageMagick for icon resizing..."
-  sudo apt-get install -y -qq imagemagick
+  echo "  WARNING: ImageMagick is not installed, so icon resizing is skipped."
+  echo "  Pre-generate the icon sizes in assets/software-manager-icon-sizes/ to avoid this dependency."
+  return 0
 fi
 
 echo "  Replacing Software Manager icon in Mint-Y theme..."
