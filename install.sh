@@ -91,5 +91,5 @@ echo "╔═══════════════════════�
 echo "║       AUCOOP Mint setup complete!        ║"
 echo "╚══════════════════════════════════════════╝"
 echo ""
-echo "You may want to reboot to ensure all changes take effect."
+echo "Please reboot now to finish AUCOOP Mint setup."
 echo ""

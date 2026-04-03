@@ -4,8 +4,8 @@
 # Pin the apps the user should see immediately and remove Terminal from the
 # launchable favorites set.
 
-FAVORITES="['google-chrome.desktop', 'word.desktop', 'excel.desktop', 'powerpoint.desktop', 'mintinstall.desktop']"
-PINNED_APPS='["google-chrome.desktop", "word.desktop", "excel.desktop", "powerpoint.desktop", "mintinstall.desktop"]'
+FAVORITES="['google-chrome.desktop', 'nemo.desktop', 'onlyoffice-word.desktop', 'onlyoffice-excel.desktop', 'onlyoffice-powerpoint.desktop', 'mintinstall.desktop']"
+PINNED_APPS='["google-chrome.desktop", "nemo.desktop", "onlyoffice-word.desktop", "onlyoffice-excel.desktop", "onlyoffice-powerpoint.desktop", "mintinstall.desktop"]'
 GROUPED_WINDOW_LIST_CONFIG="$HOME/.config/cinnamon/spices/grouped-window-list@cinnamon.org/2.json"
 
 echo "  Pinning Chrome, Word, Excel, PowerPoint, and App Store to the panel..."
@@ -20,9 +20,10 @@ path = Path(r"$GROUPED_WINDOW_LIST_CONFIG")
 data = json.loads(path.read_text())
 data.setdefault("pinned-apps", {})["value"] = [
     "google-chrome.desktop",
-    "word.desktop",
-    "excel.desktop",
-    "powerpoint.desktop",
+    "nemo.desktop",
+    "onlyoffice-word.desktop",
+    "onlyoffice-excel.desktop",
+    "onlyoffice-powerpoint.desktop",
     "mintinstall.desktop",
 ]
 path.write_text(json.dumps(data, indent=4) + "\n")

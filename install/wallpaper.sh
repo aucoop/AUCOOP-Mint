@@ -25,6 +25,8 @@ fi
 echo "  Setting wallpaper..."
 dconf write /org/cinnamon/desktop/background/picture-uri "'file://$WALLPAPER'"
 dconf write /org/cinnamon/desktop/background/picture-options "'zoom'"
+dconf write /org/cinnamon/desktop/screensaver/picture-uri "'file://$WALLPAPER'" 2>/dev/null || true
+dconf write /org/cinnamon/desktop/screensaver/picture-options "'zoom'" 2>/dev/null || true
 
 if [ -f /var/lib/AccountsService/users/"$USER" ]; then
   sudo sed -i '/^BackgroundFile=/d' /var/lib/AccountsService/users/"$USER"
