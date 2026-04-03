@@ -37,9 +37,13 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# Cache sudo once up front so non-interactive runs work cleanly.
-echo "Requesting sudo access..."
-sudo -v
+# Use cached sudo if available; otherwise ask once interactively.
+if sudo -n -v 2>/dev/null; then
+  echo "Using cached sudo access..."
+else
+  echo "Requesting sudo access..."
+  sudo -v
+fi
 
 echo ""
 echo "╔══════════════════════════════════════════╗"
@@ -66,6 +70,8 @@ run_step "$INSTALL_DIR/remove-apps.sh"
 run_step "$INSTALL_DIR/chrome.sh"
 run_step "$INSTALL_DIR/onlyoffice.sh"
 run_step "$INSTALL_DIR/flathub.sh"
+run_step "$INSTALL_DIR/codecs.sh"
+run_step "$INSTALL_DIR/drivers.sh"
 
 # Phase 3: Desktop customization
 run_step "$INSTALL_DIR/theme.sh"

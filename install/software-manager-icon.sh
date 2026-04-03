@@ -5,21 +5,14 @@
 # We replace it with a recognizable download-arrow icon across all sizes
 # in the Mint-Y icon theme (which Mint-Y-Blue inherits from).
 #
-# The source icon is stored at assets/software-manager-icon.png (512x512).
+# Pre-generated icon sizes are stored at assets/software-manager-icon-sizes/.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SOURCE_ICON="$SCRIPT_DIR/assets/software-manager-icon.png"
+ICON_ASSETS_DIR="$SCRIPT_DIR/assets/software-manager-icon-sizes"
 ICON_THEME_DIR="/usr/share/icons/Mint-Y"
 
-if [ ! -f "$SOURCE_ICON" ]; then
-  echo "  WARNING: Source icon not found at $SOURCE_ICON — skipping."
-  echo "  Place a 512x512 PNG at assets/software-manager-icon.png and re-run."
-  return 0
-fi
-
-if ! command -v convert &>/dev/null; then
-  echo "  WARNING: ImageMagick is not installed, so icon resizing is skipped."
-  echo "  Pre-generate the icon sizes in assets/software-manager-icon-sizes/ to avoid this dependency."
+if [ ! -d "$ICON_ASSETS_DIR" ]; then
+  echo "  WARNING: Icon size assets not found at $ICON_ASSETS_DIR — skipping."
   return 0
 fi
 
@@ -30,19 +23,16 @@ SIZES=(16 22 24 32 48 64 96 128 256 512)
 
 for size in "${SIZES[@]}"; do
   target_dir="$ICON_THEME_DIR/apps/$size"
-  if [ -d "$target_dir" ]; then
-    convert "$SOURCE_ICON" -resize "${size}x${size}" "/tmp/mintinstall-${size}.png"
-    sudo cp "/tmp/mintinstall-${size}.png" "$target_dir/mintinstall.png"
-    rm -f "/tmp/mintinstall-${size}.png"
+  source_icon="$ICON_ASSETS_DIR/${size}.png"
+  if [ -d "$target_dir" ] && [ -f "$source_icon" ]; then
+    sudo cp "$source_icon" "$target_dir/mintinstall.png"
   fi
 
   # HiDPI @2x variant
   target_dir_2x="$ICON_THEME_DIR/apps/${size}@2x"
-  if [ -d "$target_dir_2x" ]; then
-    doubled=$((size * 2))
-    convert "$SOURCE_ICON" -resize "${doubled}x${doubled}" "/tmp/mintinstall-${size}@2x.png"
-    sudo cp "/tmp/mintinstall-${size}@2x.png" "$target_dir_2x/mintinstall.png"
-    rm -f "/tmp/mintinstall-${size}@2x.png"
+  source_icon_2x="$ICON_ASSETS_DIR/${size}@2x.png"
+  if [ -d "$target_dir_2x" ] && [ -f "$source_icon_2x" ]; then
+    sudo cp "$source_icon_2x" "$target_dir_2x/mintinstall.png"
   fi
 done
 
