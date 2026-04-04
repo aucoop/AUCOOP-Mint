@@ -49,6 +49,14 @@ Run the test overlay:
 ./vm/run-overlay.sh ~/vms/mint22.3-test1.qcow2 2222
 ```
 
+To give the VM more memory and CPUs, pass them explicitly:
+
+```bash
+./vm/run-overlay.sh ~/vms/mint22.3-test1.qcow2 2222 12288 6
+```
+
+That example uses 12 GB RAM and 6 vCPUs.
+
 Then connect from the host:
 
 ```bash

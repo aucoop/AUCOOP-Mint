@@ -3,19 +3,21 @@
 set -euo pipefail
 
 if [ $# -lt 2 ]; then
-  echo "Usage: $0 <linuxmint.iso> <base-disk.qcow2>"
+  echo "Usage: $0 <linuxmint.iso> <base-disk.qcow2> [ram-mb] [cpus]"
   exit 1
 fi
 
 ISO="$1"
 BASE_DISK="$2"
+RAM_MB="${3:-8192}"
+CPUS="${4:-4}"
 
 qemu-system-x86_64 \
   -enable-kvm \
   -machine q35,accel=kvm \
   -cpu host \
-  -smp 4 \
-  -m 8192 \
+  -smp "$CPUS" \
+  -m "$RAM_MB" \
   -boot d \
   -drive if=virtio,format=qcow2,file="$BASE_DISK" \
   -cdrom "$ISO" \
