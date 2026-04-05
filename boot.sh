@@ -23,8 +23,11 @@ if [ -d "$INSTALL_DIR" ]; then
   git -C "$INSTALL_DIR" pull --ff-only
 else
   echo "Downloading AUCOOP Mint..."
-  git clone "$REPO_URL" "$INSTALL_DIR"
+  git clone --recurse-submodules "$REPO_URL" "$INSTALL_DIR"
 fi
+
+# Ensure submodules are initialized and up to date.
+git -C "$INSTALL_DIR" submodule update --init --recursive
 
 # Hand off to install.sh
 cd "$INSTALL_DIR"

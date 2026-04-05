@@ -38,6 +38,7 @@ Alternatively, clone and run manually:
 ```bash
 git clone https://github.com/sergio-gimenez/aucoop-deployment.git
 cd aucoop-deployment
+git submodule update --init --recursive
 bash install.sh
 ```
 
@@ -97,6 +98,7 @@ The install script takes a stock Linux Mint 22.x Cinnamon install and applies th
 │       ├── onlyoffice-document.png
 │       ├── onlyoffice-spreadsheet.png
 │       └── onlyoffice-presentation.png
+├── aucoop-workbench/              # Pinned upstream Workbench submodule
 ├── configs/                       # ISO/PXE deployment configs
 │   ├── grub.cfg                   #   UEFI boot menu (USB ISO)
 │   ├── syslinux.cfg               #   Legacy BIOS boot menu (USB ISO)

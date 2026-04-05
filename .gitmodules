@@ -1,0 +1,3 @@
+[submodule "aucoop-workbench"]
+	path = aucoop-workbench
+	url = https://github.com/eReuse/workbench-script.git
