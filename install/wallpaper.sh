@@ -8,6 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WALLPAPER_NAME="joe-mcdaniel-ZdWhZTpd_Uw-unsplash.jpg"
 USER_PICTURES_DIR="$HOME/Pictures"
 TARGET_WALLPAPER="$USER_PICTURES_DIR/$WALLPAPER_NAME"
+SYSTEM_WALLPAPER="/usr/share/backgrounds/aucoop-wallpaper.jpg"
 
 if [ -f "$SCRIPT_DIR/assets/wallpaper.jpg" ]; then
   mkdir -p "$USER_PICTURES_DIR"
@@ -41,16 +42,17 @@ fi
 
 # LightDM/Slick Greeter uses its own config for the login/greeter background.
 if [ -d /etc/lightdm ]; then
+  sudo cp "$WALLPAPER" "$SYSTEM_WALLPAPER"
   sudo mkdir -p /etc/lightdm/slick-greeter.conf.d
   sudo tee /etc/lightdm/slick-greeter.conf.d/90-aucoop-background.conf >/dev/null <<EOF
 [Greeter]
-background=$WALLPAPER
+background=$SYSTEM_WALLPAPER
 draw-user-backgrounds=false
 EOF
 
   sudo mkdir -p /etc/lightdm/lightdm-gtk-greeter.conf.d
   sudo tee /etc/lightdm/lightdm-gtk-greeter.conf.d/90-aucoop-background.conf >/dev/null <<EOF
 [greeter]
-background=$WALLPAPER
+background=$SYSTEM_WALLPAPER
 EOF
 fi
