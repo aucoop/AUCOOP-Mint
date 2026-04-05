@@ -47,4 +47,10 @@ if [ -d /etc/lightdm ]; then
 background=$WALLPAPER
 draw-user-backgrounds=false
 EOF
+
+  sudo mkdir -p /etc/lightdm/lightdm-gtk-greeter.conf.d
+  sudo tee /etc/lightdm/lightdm-gtk-greeter.conf.d/90-aucoop-background.conf >/dev/null <<EOF
+[greeter]
+background=$WALLPAPER
+EOF
 fi
