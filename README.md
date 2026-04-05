@@ -1,6 +1,6 @@
 # AUCOOP Mint
 
-A ready-to-go Linux setup for refurbished laptops. Built by [AUCOOP](https://aucoop.eu).
+A lightweight, no-nonsense, windows-like OS for non-tech users with low-end refurbished hardware in mind. Built by [AUCOOP](https://aucoop.eu).
 
 ---
 
