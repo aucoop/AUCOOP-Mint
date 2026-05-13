@@ -3,12 +3,12 @@
 # AUCOOP Mint bootstrap
 #
 # Run on a fresh Linux Mint 22.x install:
-#   wget -qO- https://raw.githubusercontent.com/sergio-gimenez/aucoop-deployment/master/boot.sh | bash
+#   wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
 #
 
 set -e
 
-REPO_URL="https://github.com/sergio-gimenez/aucoop-deployment.git"
+REPO_URL="https://github.com/aucoop/AUCOOP-Mint.git"
 INSTALL_DIR="$HOME/.aucoop-mint"
 
 # Ensure git is available (should be on Mint by default)

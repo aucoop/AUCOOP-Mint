@@ -66,8 +66,8 @@ sshpass -p 'aucoop' ssh -p 2222 -o StrictHostKeyChecking=no aucoop@127.0.0.1
 Example test run:
 
 ```bash
-sshpass -p 'aucoop' scp -P 2222 -o StrictHostKeyChecking=no -r . aucoop@127.0.0.1:/home/aucoop/aucoop-deployment
-sshpass -p 'aucoop' ssh -p 2222 -o StrictHostKeyChecking=no aucoop@127.0.0.1 'cd /home/aucoop/aucoop-deployment && bash install.sh'
+sshpass -p 'aucoop' scp -P 2222 -o StrictHostKeyChecking=no -r . aucoop@127.0.0.1:/home/aucoop/AUCOOP-Mint
+sshpass -p 'aucoop' ssh -p 2222 -o StrictHostKeyChecking=no aucoop@127.0.0.1 'cd /home/aucoop/AUCOOP-Mint && bash install.sh'
 ```
 
 ## Existing image note

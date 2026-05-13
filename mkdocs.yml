@@ -1,0 +1,76 @@
+site_name: AUCOOP Mint Docs
+site_description: Documentation for AUCOOP Mint deployment, architecture, and testing.
+site_url: https://aucoop.github.io/AUCOOP-Mint/
+
+repo_name: aucoop/AUCOOP-Mint
+repo_url: https://github.com/aucoop/AUCOOP-Mint
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+    - navigation.path
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: indigo
+      toggle:
+        icon: material/white-balance-sunny
+        name: Switch to system preference
+plugins:
+  - search
+
+extra:
+  homepage: https://github.com/aucoop/AUCOOP-Mint
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Architecture:
+      - Overview: architecture/index.md
+      - Repository map: architecture/repository-map.md
+  - Deployment:
+      - Quick start: deployment/quick-start.md
+  - Testing:
+      - QEMU workflow: testing/index.md
+  - Reference:
+      - Technical reference: technical-reference.md

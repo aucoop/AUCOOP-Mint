@@ -28,7 +28,7 @@ Linux Mint checks every box. It's open source, lightweight, and the Cinnamon des
 On a fresh Linux Mint 22.x (Cinnamon) install, run:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/sergio-gimenez/aucoop-deployment/master/boot.sh | bash
+wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
 ```
 
 That's it. The script will clone this repo and apply all AUCOOP customizations.
@@ -36,8 +36,8 @@ That's it. The script will clone this repo and apply all AUCOOP customizations.
 Alternatively, clone and run manually:
 
 ```bash
-git clone https://github.com/sergio-gimenez/aucoop-deployment.git
-cd aucoop-deployment
+git clone https://github.com/aucoop/AUCOOP-Mint.git
+cd AUCOOP-Mint
 git submodule update --init --recursive
 bash install.sh
 ```
