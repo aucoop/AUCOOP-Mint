@@ -58,6 +58,8 @@ def recommended_ai_model(ai_cfg, ram):
     for model in models:
         if ram >= model.get("min_ram_gb", 0):
             selected = model
+    if not selected and models:
+        return models[0]
     return selected
 
 
@@ -197,7 +199,7 @@ class WelcomeWindow(Gtk.Window):
         else:
             ai_text = (
                 f"This computer has about {ram:.1f} GB of RAM. "
-                "An offline AI assistant is not recommended on this machine."
+                "An offline AI assistant is not recommended on this machine, but you can still try a very small model after checking compatibility."
             )
 
         ai_label = Gtk.Label(label=ai_text)
@@ -243,7 +245,7 @@ class WelcomeWindow(Gtk.Window):
             canirun_button.connect("clicked", self.on_open_canirun, canirun_url)
             ai_inner.pack_start(canirun_button, False, False, 0)
 
-        if ai_state in {"recommended", "basic"}:
+        if ai_state != "hidden" and ai_cfg.get("models"):
             self.ai_check = Gtk.CheckButton(label="Install offline AI assistant")
             self.ai_check.connect("toggled", self.on_optional_selection_changed)
             ai_inner.pack_start(self.ai_check, False, False, 0)

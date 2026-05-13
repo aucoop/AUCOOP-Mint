@@ -40,6 +40,8 @@ else:
     for model in models:
         if ram_gb >= model.get('min_ram_gb', 0):
             selected = model
+    if not selected and models:
+        selected = models[0]
 
 if not selected:
     raise SystemExit('No suitable local AI model configured for this machine.')

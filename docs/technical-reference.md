@@ -1,10 +1,10 @@
 # AUCOOP Mint
 
-A lightweight, no-nonsense Linux Mint image for non-tech users with low-end refurbished hardware in mind. Built by [AUCOOP](https://aucoop.eu). 
+A lightweight, no-nonsense Linux Mint image for basic users with low-end refurbished hardware in mind. Built by [AUCOOP](https://aucoop.eu).
 
 ## The idea
 
-We take donated laptops, generally by the awesome [Labdoo](https://labdoo.org) project, refurbish them, and send them [where they're needed](https://aucoop.upc.edu/projectes-internacionals/). The software should get out of the way -- boot fast, feel familiar, and not confuse anyone. That's AUCOOP Mint.
+We take donated laptops, generally by the awesome [Labdoo](https://labdoo.org) project, refurbish them, and send them [where they're needed](https://aucoop.upc.edu/projectes-internacionals/). The software should get out of the way, boot fast, feel familiar, and not confuse anyone. Target users are basic laptop users, plus teachers and students in schools. That's AUCOOP Mint.
 
 ## Principles
 
