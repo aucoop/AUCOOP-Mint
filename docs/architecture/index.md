@@ -1,36 +1,59 @@
-# Architecture Overview
+# Architecture
 
-AUCOOP Mint stays layered on top of upstream Linux Mint instead of replacing it.
+AUCOOP Mint is a layer on top of Linux Mint, not a fork.
 
-| Layer | Role |
-|---|---|
-| **Linux Mint** | Installer, kernel, drivers, repositories, upgrades |
-| **`install.sh` + `install/*.sh`** | Base AUCOOP provisioning |
-| **AUCOOP Welcome** | First-login setup and optional modules |
-| **Workbench** | Device registration and circular tracking |
-| **Recovery / PXE tooling** | Batch deployment paths for real operations |
+This means:
 
-## Provisioning modules
+- Linux Mint handles installation, kernel, drivers, and system updates
+- AUCOOP Mint applies configuration and apps on top
+- Upgrades come from upstream Mint, not from us
 
-Provisioning is split into small scripts with one clear responsibility each:
+---
 
-| Script | Purpose |
-|---|---|
-| `remove-apps.sh` | Remove default software that adds noise |
-| `chrome.sh` | Install Chrome and set it as default browser |
-| `onlyoffice.sh` | Install office apps with familiar document associations |
-| `theme.sh`, `cursor.sh`, `wallpaper.sh` | Make desktop feel consistent and familiar |
-| `panel.sh`, `menu-button.sh`, `search-aliases.sh` | Reduce navigation friction |
-| `branding.sh` | Add AUCOOP identity to the system |
-| `aucoop-welcome.sh` | Install first-login setup app |
-| `aucoop-workbench.sh` | Install registration tooling |
+## Layers
 
-## First-login completion
+| Layer | Responsibility |
+|-------|----------------|
+| **Linux Mint** | Base OS, hardware support, security updates |
+| **Provisioning scripts** | Remove bloat, install apps, configure desktop |
+| **AUCOOP Welcome** | First-login setup: updates, drivers, optional modules |
+| **Workbench** | Device registration for traceability |
 
-After provisioning, AUCOOP Welcome completes:
+---
 
-- system updates
-- multimedia codecs
-- recommended drivers
-- optional Kiwix and local AI modules
-- device registration handoff
+## Why this approach
+
+1. **No maintenance burden.** We don't maintain a distro. Mint does.
+2. **Familiar upgrade path.** Users get normal Mint updates.
+3. **Reproducible.** Same scripts, same result, every time.
+4. **Transparent.** Everything is shell scripts you can read.
+
+---
+
+## Provisioning flow
+
+```
+Fresh Mint install
+       ↓
+   boot.sh / install.sh
+       ↓
+   Desktop configured, apps installed
+       ↓
+   First login → AUCOOP Welcome runs
+       ↓
+   Updates, codecs, drivers, optional extras
+       ↓
+   Ready to use
+```
+
+---
+
+## What gets changed
+
+**Removed:** Firefox, LibreOffice, Thunderbird, and other unused apps.
+
+**Added:** Chrome, OnlyOffice, Flathub.
+
+**Configured:** Light theme, Windows-like cursor, AUCOOP wallpaper, taskbar with pinned apps, familiar "Word/Excel/PowerPoint" launchers.
+
+**Deferred to first login:** System updates, codecs, drivers, Kiwix, local AI, device registration.

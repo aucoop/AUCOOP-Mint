@@ -1,12 +1,18 @@
 # Quick Start
 
-On a fresh Linux Mint 22.x Cinnamon install, run:
+## One command
+
+On a fresh Linux Mint 22.x Cinnamon install:
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
 ```
 
-Manual install:
+That's it. Reboot when done.
+
+---
+
+## Manual install
 
 ```bash
 git clone https://github.com/aucoop/AUCOOP-Mint.git
@@ -15,15 +21,30 @@ git submodule update --init --recursive
 bash install.sh
 ```
 
-## Flow
+---
 
-1. Install Linux Mint 22.x Cinnamon.
-2. Run `boot.sh` or `install.sh`.
-3. Log in and let AUCOOP Welcome finish setup.
-4. Reboot when setup completes.
+## What happens
 
-## Notes
+1. **Provisioning** — Removes bloat, installs Chrome and OnlyOffice, applies desktop config.
+2. **First login** — AUCOOP Welcome opens automatically to finish setup.
+3. **Done** — Machine is ready to hand over.
 
-- Run `install.sh` as the desktop user, not as root.
-- Installer uses `sudo` when needed.
-- AUCOOP Welcome handles hardware-sensitive and optional steps after login.
+---
+
+## Requirements
+
+- Linux Mint 22.x Cinnamon (fresh install)
+- Internet connection during setup
+- Run as desktop user, not root
+
+---
+
+## After install
+
+AUCOOP Welcome handles:
+
+- System updates
+- Multimedia codecs
+- Recommended drivers
+- Optional: Kiwix (offline Wikipedia), local AI
+- Optional: Device registration

@@ -1,24 +1,22 @@
-# AUCOOP Mint Docs
+# AUCOOP Mint
 
-Technical documentation for AUCOOP Mint.
+AUCOOP Mint turns a stock Linux Mint install into a ready-to-deliver laptop for basic users.
 
-AUCOOP Mint keeps upstream Linux Mint, then adds a reproducible provisioning layer for refurbished laptops and community deployment.
+**Use case:** Refurbished laptops for schools, community projects, and anyone who needs a computer that just works.
 
-## Start here
+---
 
-- [Architecture overview](architecture/index.md)
-- [Repository map](architecture/repository-map.md)
-- [Quick start](deployment/quick-start.md)
-- [Testing in QEMU](testing/index.md)
-- [Technical reference](technical-reference.md)
+## Get started
 
-## Scope
+**New to AUCOOP Mint?** Start here:
 
-This docs section covers:
+1. [Quick start](deployment/quick-start.md) — Install in one command
+2. [Architecture](architecture/index.md) — How the system is structured
+3. [Testing](testing/index.md) — Validate changes in a VM
 
-- system architecture
-- provisioning modules
-- repository layout
-- installation flow
-- VM-based testing
-- recovery and deployment references
+---
+
+## For contributors
+
+- [Repository map](architecture/repository-map.md) — Where things live
+- [Technical reference](technical-reference.md) — Deep dive into provisioning, customization, and deployment workflows
