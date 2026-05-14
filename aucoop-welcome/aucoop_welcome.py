@@ -66,7 +66,9 @@ def recommended_ai_model(ai_cfg, ram):
 def ai_model_label(model):
     size = model.get('size_gb')
     size_text = f", {size} GB download" if size else ""
-    return f"{model['name']} ({model.get('min_ram_gb', '?')} GB+ recommended{size_text})"
+    summary = model.get('summary')
+    summary_text = f" - {summary}" if summary else ""
+    return f"{model['name']} ({model.get('min_ram_gb', '?')} GB+ recommended{size_text}){summary_text}"
 
 
 def filtered_ai_models(ai_cfg, show_more):
@@ -194,12 +196,12 @@ class WelcomeWindow(Gtk.Window):
         elif ai_state == "basic":
             ai_text = (
                 f"This computer has about {ram:.1f} GB of RAM. "
-                "A very small offline AI assistant may work here, but performance will be limited."
+                "A small offline AI assistant should work, but replies may be slow."
             )
         else:
             ai_text = (
                 f"This computer has about {ram:.1f} GB of RAM. "
-                "An offline AI assistant is not recommended on this machine, but you can still try a very small model after checking compatibility."
+                "An offline AI assistant is not recommended on this machine, but you can still try smallest model after checking compatibility."
             )
 
         ai_label = Gtk.Label(label=ai_text)
@@ -230,7 +232,7 @@ class WelcomeWindow(Gtk.Window):
             ai_inner.pack_start(self.show_more_models_check, False, False, 0)
 
             selector_hint = Gtk.Label(
-                label="You can keep the recommended model, or choose another one after checking canirun.ai."
+                label="Keep recommended model for safest experience, or choose stronger one after checking compatibility."
             )
             selector_hint.set_xalign(0)
             selector_hint.set_line_wrap(True)

@@ -14,6 +14,8 @@ REQUESTED_MODEL_ID="${1:-auto}"
 
 readarray -t MODEL_INFO < <(python3 - "$CONFIG_FILE" "$REQUESTED_MODEL_ID" <<'PY'
 import json
+import re
+import urllib.request
 from pathlib import Path
 import sys
 
@@ -46,29 +48,56 @@ else:
 if not selected:
     raise SystemExit('No suitable local AI model configured for this machine.')
 
+req = urllib.request.Request('https://api.github.com/repos/Mozilla-Ocho/llamafile/releases/latest')
+with urllib.request.urlopen(req) as resp:
+    release_data = json.loads(resp.read().decode('utf-8'))
+
+runtime_url = None
+runtime_filename = None
+for asset in release_data.get('assets', []):
+    if re.fullmatch(r'llamafile-[0-9.]+', asset.get('name', '')):
+        runtime_url = asset['browser_download_url']
+        runtime_filename = asset['name']
+        break
+
+if not runtime_url or not runtime_filename:
+    raise SystemExit('Could not find latest standalone llamafile runtime.')
+
 print(selected['name'])
-print(selected['download_url'])
-print(selected['filename'])
+print(runtime_url)
+print(runtime_filename)
+print(selected['model_url'])
+print(selected['model_filename'])
 print(str(selected.get('port', 8091)))
 PY
 )
 
 MODEL_NAME="${MODEL_INFO[0]}"
-DOWNLOAD_URL="${MODEL_INFO[1]}"
-FILENAME="${MODEL_INFO[2]}"
-PORT="${MODEL_INFO[3]}"
+RUNTIME_URL="${MODEL_INFO[1]}"
+RUNTIME_FILENAME="${MODEL_INFO[2]}"
+MODEL_URL="${MODEL_INFO[3]}"
+MODEL_FILENAME="${MODEL_INFO[4]}"
+PORT="${MODEL_INFO[5]}"
+RUNTIME_PATH="$TARGET_DIR/llamafile"
+MODEL_PATH="$TARGET_DIR/$MODEL_FILENAME"
 
 echo "Installing local AI assistant: $MODEL_NAME"
 
 mkdir -p "$TARGET_DIR"
-curl -L "$DOWNLOAD_URL" -o "$TARGET_DIR/$FILENAME"
-chmod +x "$TARGET_DIR/$FILENAME"
+pkill -f "$TARGET_DIR/" 2>/dev/null || true
+find "$TARGET_DIR" -maxdepth 1 -type f \( -name '*.gguf' -o -name '*.llamafile' -o -name 'llamafile-*' -o -name 'llamafile' \) -delete
+
+curl -L "$RUNTIME_URL" -o "$TARGET_DIR/$RUNTIME_FILENAME"
+install -m 755 "$TARGET_DIR/$RUNTIME_FILENAME" "$RUNTIME_PATH"
+rm -f "$TARGET_DIR/$RUNTIME_FILENAME"
+
+curl -L "$MODEL_URL" -o "$MODEL_PATH"
 
 cat > "$RUNNER_SCRIPT" <<EOF
 #!/bin/bash
 set -euo pipefail
-pkill -f '$TARGET_DIR/$FILENAME --server' 2>/dev/null || true
-nohup '$TARGET_DIR/$FILENAME' --server --host 127.0.0.1 --port $PORT >/tmp/aucoop-local-ai.log 2>&1 < /dev/null &
+pkill -f '$RUNTIME_PATH -m $MODEL_PATH --server' 2>/dev/null || true
+nohup '$RUNTIME_PATH' -m '$MODEL_PATH' --ctx-size 4096 --server --host 127.0.0.1 --port $PORT >/tmp/aucoop-local-ai.log 2>&1 < /dev/null &
 sleep 3
 xdg-open 'http://127.0.0.1:$PORT'
 EOF
