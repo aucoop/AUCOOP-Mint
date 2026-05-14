@@ -2,7 +2,7 @@
 
 <img src="assets/AUCOOP_logotip.png" alt="AUCOOP" width="400">
 
-# AUCOOP Mint
+# Mint
 
 A lightweight, no-nonsense, Windows-like OS for basic users<br>
 with low-end refurbished hardware in mind.
