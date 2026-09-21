@@ -7,7 +7,12 @@ CONFIG_FILE="$APP_DIR/modules.json"
 TARGET_DIR="/opt/aucoop-ai"
 RUNNER_SCRIPT="$TARGET_DIR/run-local-ai.sh"
 DESKTOP_FILE="/usr/share/applications/aucoop-local-ai.desktop"
-DESKTOP_DIR="${SUDO_USER:+/home/$SUDO_USER/Desktop}"
+# Welcome runs this through pkexec, which sets PKEXEC_UID rather than SUDO_USER.
+TARGET_USER="${SUDO_USER:-}"
+if [ -z "$TARGET_USER" ] && [ -n "${PKEXEC_UID:-}" ]; then
+  TARGET_USER="$(id -nu "$PKEXEC_UID")"
+fi
+DESKTOP_DIR="${TARGET_USER:+/home/$TARGET_USER/Desktop}"
 ICON_SOURCE="$APP_DIR/assets/llamafile-icon.png"
 ICON_TARGET="/usr/share/pixmaps/aucoop-local-ai.png"
 REQUESTED_MODEL_ID="${1:-auto}"
@@ -127,9 +132,9 @@ update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
 if [ -n "${DESKTOP_DIR:-}" ]; then
   mkdir -p "$DESKTOP_DIR"
   cp "$DESKTOP_FILE" "$DESKTOP_DIR/aucoop-local-ai.desktop"
-  chown "$SUDO_USER:$SUDO_USER" "$DESKTOP_DIR/aucoop-local-ai.desktop"
+  chown "$TARGET_USER:$TARGET_USER" "$DESKTOP_DIR/aucoop-local-ai.desktop"
   chmod +x "$DESKTOP_DIR/aucoop-local-ai.desktop"
-  sudo -u "$SUDO_USER" gio set "$DESKTOP_DIR/aucoop-local-ai.desktop" metadata::trusted true 2>/dev/null || true
+  sudo -u "$TARGET_USER" gio set "$DESKTOP_DIR/aucoop-local-ai.desktop" metadata::trusted true 2>/dev/null || true
 fi
 
 echo "Installed local AI assistant launcher."
