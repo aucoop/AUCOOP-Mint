@@ -2,10 +2,10 @@
 
 set -euo pipefail
 
-echo "Installing multimedia codecs..."
-apt-get update -qq
 echo "Installing initial updates..."
+apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+echo "Installing multimedia codecs..."
 DEBIAN_FRONTEND=noninteractive apt-get install -y mint-meta-codecs
 
 if command -v ubuntu-drivers >/dev/null 2>&1; then
