@@ -43,12 +43,17 @@ fi
 # LightDM/Slick Greeter uses its own config for the login/greeter background.
 if [ -d /etc/lightdm ]; then
   sudo cp "$WALLPAPER" "$SYSTEM_WALLPAPER"
-  sudo mkdir -p /etc/lightdm/slick-greeter.conf.d
-  sudo tee /etc/lightdm/slick-greeter.conf.d/90-aucoop-background.conf >/dev/null <<EOF
-[Greeter]
-background=$SYSTEM_WALLPAPER
-draw-user-backgrounds=false
-EOF
+
+  # Slick Greeter only reads /etc/lightdm/slick-greeter.conf (no conf.d), and
+  # Mint's Login Window settings tool writes the same file, so merge into it.
+  SLICK_CONF="/etc/lightdm/slick-greeter.conf"
+  sudo touch "$SLICK_CONF"
+  sudo grep -q '^\[Greeter\]' "$SLICK_CONF" || echo '[Greeter]' | sudo tee -a "$SLICK_CONF" >/dev/null
+  sudo sed -i '/^background=/d; /^draw-user-backgrounds=/d' "$SLICK_CONF"
+  sudo sed -i "/^\[Greeter\]/a background=$SYSTEM_WALLPAPER\ndraw-user-backgrounds=false" "$SLICK_CONF"
+  # Clean up the ignored drop-in written by earlier versions of this script.
+  sudo rm -f /etc/lightdm/slick-greeter.conf.d/90-aucoop-background.conf
+  sudo rmdir /etc/lightdm/slick-greeter.conf.d 2>/dev/null || true
 
   sudo mkdir -p /etc/lightdm/lightdm-gtk-greeter.conf.d
   sudo tee /etc/lightdm/lightdm-gtk-greeter.conf.d/90-aucoop-background.conf >/dev/null <<EOF
