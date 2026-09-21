@@ -260,11 +260,23 @@ class WelcomeWindow(Gtk.Window):
         self.install_optional_button = Gtk.Button(label="Install selected tools")
         self.install_optional_button.set_sensitive(False)
         self.install_optional_button.connect("clicked", self.on_install_optional)
-        box.pack_end(self.install_optional_button, False, False, 0)
+        self.install_optional_button.set_margin_start(12)
+        self.install_optional_button.set_margin_end(12)
+        self.install_optional_button.set_margin_bottom(12)
 
         self.refresh_optional_button_state()
 
-        self.notebook.append_page(box, Gtk.Label(label="Extra tools"))
+        # Scroll the options and keep the install button visible, so the tab
+        # still works on small screens such as 1024x600 netbooks.
+        scroll = Gtk.ScrolledWindow()
+        scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        scroll.add(box)
+
+        page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        page.pack_start(scroll, True, True, 0)
+        page.pack_end(self.install_optional_button, False, False, 0)
+
+        self.notebook.append_page(page, Gtk.Label(label="Extra tools"))
 
     def build_advanced_tab(self):
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
