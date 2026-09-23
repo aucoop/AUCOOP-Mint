@@ -373,31 +373,35 @@ ui_poll_keys() {
 }
 
 # Rainbow logo with sparkles, then the final summary.
-ui_finale() {
-  local k
-  for ((k = 0; k < 40; k++)); do
-    ui_begin
-    ui_header rainbow "$k"
-    ui_steps_rows "${#STEP_LABELS[@]}" done
-    ui_flush
-    sleep 0.05
-  done
-}
-
-ui_done_screen() {
-  local total
+# The finish: the logo keeps cycling colours behind the question, until
+# the person answers. Returns 0 for yes (restart), 1 for no.
+ui_done_prompt() {
+  local total prompt key tick=0
   fmt_clock "$UI_TOTAL_ELAPSED"
   # shellcheck disable=SC2059
   printf -v total "$L_DONE_IN" "$REPLY"
-  ui_begin
-  ui_header static 0
-  ui_steps_rows "${#STEP_LABELS[@]}" done
-  ui_add ""
-  ui_add "    $C_GREEN$C_BOLD$L_READY$C_RESET  $C_GRAY$total"
-  ui_add "    $C_WHITE$L_RESTART_HINT"
-  ui_add ""
-  ui_flush
-  printf '\n'
+  prompt="    $C_WHITE$C_BOLD$L_RESTART_Q$C_RESET $C_GRAY$L_YES_NO"
+
+  while true; do
+    ui_begin
+    ui_header rainbow "$tick"
+    ui_steps_rows "${#STEP_LABELS[@]}" done
+    ui_add ""
+    ui_add "    $C_GREEN$C_BOLD$L_READY$C_RESET  $C_GRAY$total"
+    ui_add "    $C_WHITE$L_RESTART_HINT"
+    ui_add ""
+    ui_add "$prompt"
+    ui_flush
+
+    # One keypress is enough here: Enter takes the default.
+    if read -rsn1 -t 0.08 key < /dev/tty 2>/dev/null; then
+      case "$key" in
+        y|Y|s|S|o|O|"") return 0 ;;
+        n|N) return 1 ;;
+      esac
+    fi
+    tick=$((tick + 1))
+  done
 }
 
 # Only the failed step is listed, so the message and log fit on 80x24.

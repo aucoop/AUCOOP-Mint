@@ -65,12 +65,16 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Architecture:
-      - Overview: architecture/index.md
-      - Repository map: architecture/repository-map.md
-  - Deployment:
+  - Prepare a laptop:
       - Quick start: deployment/quick-start.md
-  - Testing:
-      - QEMU workflow: testing/index.md
-  - Reference:
+      - First login: deployment/first-boot.md
+      - Slow or no internet: deployment/slow-internet.md
+  - Using the laptop:
+      - What's on it: use/index.md
+      - Offline AI assistant: use/offline-ai.md
+  - Under the hood:
+      - Architecture: architecture/index.md
+      - Repository map: architecture/repository-map.md
+      - Testing in a VM: testing/index.md
       - Technical reference: technical-reference.md
+  - Troubleshooting: troubleshooting.md

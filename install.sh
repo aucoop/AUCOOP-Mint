@@ -263,21 +263,27 @@ else
     done_expect=$((done_expect + expect))
   done
 
-  ui_finale
-  ui_done_screen
-  ui_restore
 fi
 
 echo "AUCOOP Mint install finished $(date)" >> "$LOG_FILE"
 
 # ── Done ──────────────────────────────────────────────────────────
 
-if [ "$FANCY" -eq 0 ]; then
+restart_wanted=1
+if [ "$FANCY" -eq 1 ]; then
+  # Keeps the logo cycling colours while it waits for the answer.
+  ui_done_prompt
+  restart_wanted=$?
+  ui_restore
+  printf '\n'
+else
   say ""
   say "$L_PLAIN_DONE"
+  ask "    $L_RESTART_Q" Y
+  restart_wanted=$?
 fi
 
-if ask "    $L_RESTART_Q" Y; then
+if [ "$restart_wanted" -eq 0 ]; then
   say ""
   say "    $L_RESTARTING"
   sleep 2
