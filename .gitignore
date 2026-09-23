@@ -18,3 +18,7 @@ Thumbs.db
 *.swp
 *~
 site/
+
+# Python bytecode
+__pycache__/
+*.pyc
