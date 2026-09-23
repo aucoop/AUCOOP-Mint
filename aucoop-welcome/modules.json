@@ -7,7 +7,10 @@
       "category": "Knowledge",
       "install": {
         "type": "apt",
-        "packages": ["kiwix-tools", "kiwix"]
+        "packages": [
+          "kiwix-tools",
+          "kiwix"
+        ]
       },
       "default_selected": false
     }
@@ -16,20 +19,61 @@
     "enabled": true,
     "canirun_url": "https://canirun.ai/",
     "launcher_name": "Offline AI assistant",
+    "runtime": {
+      "version": "0.10.6",
+      "url": "https://github.com/mozilla-ai/llamafile/releases/download/0.10.6/llamafile-0.10.6",
+      "filename": "llamafile-0.10.6",
+      "sha256": "d579f61dcd3a306f518e6d90e599d77793ed5f09543023d09c96ad35fcfa63f0",
+      "size_bytes": 368094430
+    },
     "minimum_ram_gb": 4,
     "recommended_ram_gb": 16,
     "small_model_ram_gb": 4,
     "medium_model_ram_gb": 8,
     "models": [
       {
-        "id": "qwen-0.5b",
-        "name": "Qwen2.5 0.5B Instruct",
-        "size_gb": 0.5,
+        "id": "llama-1b",
+        "name": "Llama 3.2 1B Instruct",
+        "size_gb": 0.8,
+        "size_bytes": 807694464,
+        "min_ram_gb": 3,
+        "curated": true,
+        "summary": "lightest, works on weak computers",
+        "license": "Llama 3.2 Community License",
+        "license_url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
+        "model_url": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "model_filename": "Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+        "sha256": "6f85a640a97cf2bf5b8e764087b1e83da0fdb51d7c9fab7d0fece9385611df83",
+        "port": 8091
+      },
+      {
+        "id": "gemma-2b",
+        "name": "Gemma 2 2B",
+        "size_gb": 1.7,
+        "size_bytes": 1708582752,
         "min_ram_gb": 4,
         "curated": true,
-        "summary": "lightest, best for weak machines",
-        "model_url": "https://huggingface.co/bartowski/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf",
-        "model_filename": "Qwen2.5-0.5B-Instruct-Q4_K_M.gguf",
+        "summary": "good balance of quality and speed",
+        "license": "Gemma Terms of Use",
+        "license_url": "https://ai.google.dev/gemma/terms",
+        "model_url": "https://huggingface.co/bartowski/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q4_K_M.gguf",
+        "model_filename": "gemma-2-2b-it-Q4_K_M.gguf",
+        "sha256": "e0aee85060f168f0f2d8473d7ea41ce2f3230c1bc1374847505ea599288a7787",
+        "port": 8091
+      },
+      {
+        "id": "llama-3b",
+        "name": "Llama 3.2 3B Instruct",
+        "size_gb": 2.0,
+        "size_bytes": 2019377696,
+        "min_ram_gb": 6,
+        "curated": true,
+        "summary": "better answers, needs a bit more memory",
+        "license": "Llama 3.2 Community License",
+        "license_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
+        "model_url": "https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+        "model_filename": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+        "sha256": "6c1a2b41161032677be168d354123594c0e6e67d2b9227c84f296ad037c728ff",
         "port": 8091
       },
       {
@@ -38,10 +82,14 @@
         "size_gb": 2.5,
         "min_ram_gb": 8,
         "curated": true,
-        "summary": "better quality for normal laptops",
+        "summary": "strong answers, for computers with more memory",
         "model_url": "https://huggingface.co/bartowski/microsoft_Phi-4-mini-instruct-GGUF/resolve/main/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
         "model_filename": "microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
-        "port": 8091
+        "port": 8091,
+        "sha256": "01999f17c39cc3074afae5e9c539bc82d45f2dd7faa3917c66cbef76fce8c0c2",
+        "size_bytes": 2491874688,
+        "license": "MIT",
+        "license_url": "https://huggingface.co/microsoft/Phi-4-mini-instruct"
       },
       {
         "id": "qwen-8b",
@@ -52,7 +100,11 @@
         "summary": "stronger answers, needs more RAM",
         "model_url": "https://huggingface.co/bartowski/Qwen_Qwen3-8B-GGUF/resolve/main/Qwen_Qwen3-8B-Q4_K_M.gguf",
         "model_filename": "Qwen_Qwen3-8B-Q4_K_M.gguf",
-        "port": 8091
+        "port": 8091,
+        "sha256": "54fffa050078e984116639c83dfb64b5aa6d4cd474e018b076777c632bbccccd",
+        "size_bytes": 5027784224,
+        "license": "Apache 2.0",
+        "license_url": "https://huggingface.co/Qwen/Qwen3-8B"
       },
       {
         "id": "qwen-14b",
@@ -63,7 +115,11 @@
         "summary": "best quality, for powerful computers",
         "model_url": "https://huggingface.co/bartowski/Qwen_Qwen3-14B-GGUF/resolve/main/Qwen_Qwen3-14B-Q4_K_M.gguf",
         "model_filename": "Qwen_Qwen3-14B-Q4_K_M.gguf",
-        "port": 8091
+        "port": 8091,
+        "sha256": "915913e22399475dbe6c968ac014d9f1fbe08975e489279aede9d5c7b2c98eb6",
+        "size_bytes": 9001753632,
+        "license": "Apache 2.0",
+        "license_url": "https://huggingface.co/Qwen/Qwen3-14B"
       }
     ],
     "description": "This computer may be able to run a simple offline AI assistant locally."
