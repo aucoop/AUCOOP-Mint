@@ -11,7 +11,7 @@ echo "  Installing AUCOOP Welcome..."
 
 sudo mkdir -p "$TARGET_DIR"
 sudo cp -r "$SOURCE_DIR"/* "$TARGET_DIR/"
-sudo chmod +x "$TARGET_DIR/aucoop_welcome.py" "$TARGET_DIR/essential-setup.sh" "$TARGET_DIR/install-module.sh" "$TARGET_DIR/install-local-ai.sh" "$TARGET_DIR/pkexec-runner.sh" "$TARGET_DIR/run-workbench-registration.sh"
+sudo chmod +x "$TARGET_DIR/aucoop_welcome.py" "$TARGET_DIR/essential-setup.sh" "$TARGET_DIR/install-module.sh" "$TARGET_DIR/install-local-ai.sh" "$TARGET_DIR/pkexec-runner.sh" "$TARGET_DIR/run-workbench-registration.sh" "$TARGET_DIR/schedule-setup.sh" "$TARGET_DIR/remind-when-online.sh" "$TARGET_DIR/uninstall-local-ai.sh"
 sudo cp "$SOURCE_DIR/aucoop-welcome.desktop" /usr/share/applications/aucoop-welcome.desktop
 
 mkdir -p "$DESKTOP_DIR"
