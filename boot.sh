@@ -12,22 +12,22 @@ REPO_URL="https://github.com/aucoop/AUCOOP-Mint.git"
 INSTALL_DIR="$HOME/.aucoop-mint"
 
 # Ensure git is available (should be on Mint by default)
+echo ""
+echo "  Downloading AUCOOP Mint..."
+
 if ! command -v git &>/dev/null; then
-  echo "Installing git..."
-  sudo apt-get update -qq && sudo apt-get install -y -qq git
+  sudo apt-get update -qq && sudo apt-get install -y -qq git >/dev/null
 fi
 
 # Clone or update the repo
 if [ -d "$INSTALL_DIR" ]; then
-  echo "Updating AUCOOP Mint..."
-  git -C "$INSTALL_DIR" pull --ff-only
+  git -C "$INSTALL_DIR" pull -q --ff-only
 else
-  echo "Downloading AUCOOP Mint..."
-  git clone --recurse-submodules "$REPO_URL" "$INSTALL_DIR"
+  git clone -q --recurse-submodules "$REPO_URL" "$INSTALL_DIR"
 fi
 
 # Ensure submodules are initialized and up to date.
-git -C "$INSTALL_DIR" submodule update --init --recursive
+git -C "$INSTALL_DIR" submodule update -q --init --recursive
 
 # Hand off to install.sh
 cd "$INSTALL_DIR"
