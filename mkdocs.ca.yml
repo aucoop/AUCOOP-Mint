@@ -1,15 +1,16 @@
-site_name: AUCOOP Mint Docs
-site_description: Documentation for AUCOOP Mint deployment, architecture, and testing.
-site_url: https://aucoop.github.io/AUCOOP-Mint/
-docs_dir: docs/en
+site_name: Documentació d’AUCOOP Mint
+site_description: Documentació per utilitzar, preparar i desenvolupar AUCOOP Mint.
+site_url: https://aucoop.github.io/AUCOOP-Mint/ca/
+site_dir: site/ca
+docs_dir: docs/ca
 
 repo_name: aucoop/AUCOOP-Mint
 repo_url: https://github.com/aucoop/AUCOOP-Mint
-edit_uri: edit/master/docs/en/
+edit_uri: edit/master/docs/ca/
 
 theme:
   name: material
-  language: en
+  language: ca
   features:
     - content.action.edit
     - content.action.view
@@ -25,21 +26,22 @@ theme:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Canvia al mode clar
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: light blue
       accent: indigo
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
+        name: Canvia al mode fosc
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: light blue
       accent: indigo
       toggle:
         icon: material/white-balance-sunny
-        name: Switch to system preference
+        name: Utilitza el mode del sistema
+
 plugins:
   - search
 
@@ -82,17 +84,17 @@ markdown_extensions:
       alternate_style: true
 
 nav:
-  - Home: index.md
-  - Prepare a laptop:
-      - Quick start: deployment/quick-start.md
-      - First login: deployment/first-boot.md
-      - Slow or no internet: deployment/slow-internet.md
-  - Using the laptop:
-      - What's on it: use/index.md
-      - Offline AI assistant: use/offline-ai.md
-  - Under the hood:
-      - Architecture: architecture/index.md
-      - Repository map: architecture/repository-map.md
-      - Testing in a VM: testing/index.md
-      - Technical reference: technical-reference.md
-  - Troubleshooting: troubleshooting.md
+  - Inici: index.md
+  - Preparar un portàtil:
+      - Guia ràpida: deployment/quick-start.md
+      - Primer inici: deployment/first-boot.md
+      - Internet lent o inexistent: deployment/slow-internet.md
+  - Utilitzar el portàtil:
+      - Què hi ha instal·lat: use/index.md
+      - Assistent d’IA sense connexió: use/offline-ai.md
+  - Per dins:
+      - Arquitectura: architecture/index.md
+      - Mapa del repositori: architecture/repository-map.md
+      - Proves en una màquina virtual: testing/index.md
+      - Referència tècnica: technical-reference.md
+  - Solució de problemes: troubleshooting.md

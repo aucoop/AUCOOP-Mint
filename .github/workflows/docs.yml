@@ -38,7 +38,11 @@ jobs:
         run: pip install zensical
 
       - name: Build docs
-        run: zensical build --clean
+        run: |
+          zensical build --clean
+          zensical build -f mkdocs.es.yml
+          zensical build -f mkdocs.fr.yml
+          zensical build -f mkdocs.ca.yml
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

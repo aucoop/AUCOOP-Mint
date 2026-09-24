@@ -1,15 +1,16 @@
-site_name: AUCOOP Mint Docs
-site_description: Documentation for AUCOOP Mint deployment, architecture, and testing.
-site_url: https://aucoop.github.io/AUCOOP-Mint/
-docs_dir: docs/en
+site_name: Documentation d’AUCOOP Mint
+site_description: Documentation pour utiliser, préparer et développer AUCOOP Mint.
+site_url: https://aucoop.github.io/AUCOOP-Mint/fr/
+site_dir: site/fr
+docs_dir: docs/fr
 
 repo_name: aucoop/AUCOOP-Mint
 repo_url: https://github.com/aucoop/AUCOOP-Mint
-edit_uri: edit/master/docs/en/
+edit_uri: edit/master/docs/fr/
 
 theme:
   name: material
-  language: en
+  language: fr
   features:
     - content.action.edit
     - content.action.view
@@ -25,21 +26,22 @@ theme:
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Passer au thème clair
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: light blue
       accent: indigo
       toggle:
         icon: material/weather-night
-        name: Switch to dark mode
+        name: Passer au thème sombre
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: light blue
       accent: indigo
       toggle:
         icon: material/white-balance-sunny
-        name: Switch to system preference
+        name: Utiliser le thème du système
+
 plugins:
   - search
 
@@ -82,17 +84,17 @@ markdown_extensions:
       alternate_style: true
 
 nav:
-  - Home: index.md
-  - Prepare a laptop:
-      - Quick start: deployment/quick-start.md
-      - First login: deployment/first-boot.md
-      - Slow or no internet: deployment/slow-internet.md
-  - Using the laptop:
-      - What's on it: use/index.md
-      - Offline AI assistant: use/offline-ai.md
-  - Under the hood:
+  - Accueil: index.md
+  - Préparer un ordinateur:
+      - Démarrage rapide: deployment/quick-start.md
+      - Première connexion: deployment/first-boot.md
+      - Connexion lente ou absente: deployment/slow-internet.md
+  - Utiliser l’ordinateur:
+      - Ce qui est installé: use/index.md
+      - Assistant IA hors ligne: use/offline-ai.md
+  - Fonctionnement interne:
       - Architecture: architecture/index.md
-      - Repository map: architecture/repository-map.md
-      - Testing in a VM: testing/index.md
-      - Technical reference: technical-reference.md
-  - Troubleshooting: troubleshooting.md
+      - Plan du dépôt: architecture/repository-map.md
+      - Tests dans une machine virtuelle: testing/index.md
+      - Référence technique: technical-reference.md
+  - Dépannage: troubleshooting.md

@@ -13,7 +13,7 @@ with low-end refurbished hardware in mind.
 
 <br>
 
-<img src="docs/assets/desktop.jpg" alt="AUCOOP Mint homescreen" width="90%">
+<img src="docs/en/assets/desktop.jpg" alt="AUCOOP Mint homescreen" width="90%">
 
 </div>
 
