@@ -16,6 +16,8 @@ Facts are a different story. These models are a hundred times smaller than what 
 
 Welcome measures the memory and the free disk, then offers only what the machine can run:
 
+![The model picker only shows models that fit this 8 GB computer](../assets/welcome-models.jpg)
+
 | Memory | Model | Download | Licence |
 |--------|-------|----------|---------|
 | 3 GB+ | Llama 3.2 1B | 0.8 GB | Llama 3.2 Community |

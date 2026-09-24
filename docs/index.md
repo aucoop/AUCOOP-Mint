@@ -20,7 +20,7 @@ Two of those boxes need you at the keyboard. The rest runs on its own.
 
 ## Start here
 
-If you're preparing a laptop for someone, [Quick start](deployment/quick-start.md) is the page you want. It takes about twenty minutes from USB stick to finished machine, most of it waiting.
+If you're preparing a laptop for someone, [Quick start](deployment/quick-start.md) is the page you want. Give yourself half an hour from USB stick to finished machine; the connection and the laptop's age decide the real time.
 
 Already installed, and wondering what all those icons do? [What's on the laptop](use/index.md) covers that, and the [offline AI assistant](use/offline-ai.md) has its own page because it deserves the explanation.
 

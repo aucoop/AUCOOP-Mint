@@ -1,6 +1,6 @@
 # Prepare a laptop
 
-Start with a laptop that has Linux Mint 22.3 Cinnamon freshly installed, nothing else. You'll need the password of the user account, an internet connection, and about twenty minutes, most of which you can spend doing something else.
+Start with a laptop that has Linux Mint 22.3 Cinnamon freshly installed, nothing else. You'll need the password of the user account and an internet connection. Give yourself half an hour; most of it is waiting for downloads.
 
 ## 1. Install Linux Mint
 
@@ -16,23 +16,29 @@ Open a terminal on the freshly installed machine and paste this:
 wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
 ```
 
-It asks for your password once, then shows what it's doing:
+This is what it should look like before you press **Enter**:
+
+![The AUCOOP Mint install command waiting in a terminal](../assets/installer-command.jpg)
+
+It asks for the computer's password once. The cursor won't move while you type it; Linux doesn't show the password, not even as dots. Press **Enter** when you're done.
+
+The installer then takes over:
 
 ![The installer running](../assets/installer-running.jpg)
 
-Seven steps, each with the time it took. On a laptop with decent internet the whole thing lands somewhere around two minutes; the office suite is the slow one, since OnlyOffice is a big download.
+There are seven steps, each with its own timer. A clean test machine took 1 minute 44 seconds; an old laptop or a slow connection will take longer. OnlyOffice is usually the slow part because it's a large download.
 
 If you want to see the actual commands, press **D** at any point:
 
 ![Technical details](../assets/installer-details.jpg)
 
-Press **D** again to hide them. Everything is written to `~/.local/state/aucoop-mint/install.log` either way, so nothing is hidden, it's just out of the way.
+Press **D** again to return to the simple view. The installer writes the same output to `~/.local/state/aucoop-mint/install.log`, whether the panel is open or closed.
 
 When it finishes it asks whether to restart:
 
 ![Installation finished](../assets/installer-done.jpg)
 
-Say yes. The desktop changes only take effect after that restart.
+Press **Enter** to accept the default, **Y**, and restart. The new desktop appears after that reboot.
 
 ### Prefer to clone it?
 
@@ -47,7 +53,7 @@ Same thing; the one-liner just does the cloning for you. Add `--verbose` if you'
 
 ## 3. Finish in AUCOOP Welcome
 
-After the restart you log in and AUCOOP Welcome opens by itself with five steps: updates, extras, registration, done. That's the [next page](first-boot.md).
+After the restart you log in and AUCOOP Welcome opens by itself with five steps: welcome, setup, extras, registration and done. That's the [next page](first-boot.md).
 
 ## What the command actually changes
 
