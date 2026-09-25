@@ -2,6 +2,12 @@
 
 Start with a laptop that has Linux Mint 22.3 Cinnamon freshly installed, nothing else. You'll need the password of the user account and an internet connection. Give yourself half an hour; most of it is waiting for downloads.
 
+Prefer to watch first? This 5-minute video shows every step below, from downloading Linux Mint to a finished laptop. It has no voice, so keep the subtitles on.
+
+<div style="position:relative;aspect-ratio:16/9;width:100%;margin:1em 0 2em">
+  <iframe src="https://www.youtube-nocookie.com/embed/B49QS7KgN3Y?cc_load_policy=1&amp;cc_lang_pref=en&amp;hl=en&amp;rel=0" title="AUCOOP Mint video guide" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ## 1. Install Linux Mint
 
 Nothing special here: the normal Mint installer, from a USB stick.

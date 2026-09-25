@@ -2,6 +2,12 @@
 
 Comença amb un portàtil que tingui Linux Mint 22.3 Cinnamon acabat d’instal·lar i res més. Et caldran la contrasenya del compte i connexió a internet. Reserva mitja hora; passaràs gairebé tot aquest temps esperant les descàrregues.
 
+Prefereixes veure-ho primer? Aquest vídeo de 5 minuts mostra tots els passos d’aquesta pàgina, des de la descàrrega de Linux Mint fins al portàtil acabat. No té veu, així que deixa els subtítols activats.
+
+<div style="position:relative;aspect-ratio:16/9;width:100%;margin:1em 0 2em">
+  <iframe src="https://www.youtube-nocookie.com/embed/B49QS7KgN3Y?cc_load_policy=1&amp;cc_lang_pref=ca&amp;hl=ca&amp;rel=0" title="AUCOOP Mint video guide" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ## 1. Instal·lar Linux Mint
 
 No hi ha cap pas especial: fes servir l’instal·lador normal de Mint des d’una memòria USB.

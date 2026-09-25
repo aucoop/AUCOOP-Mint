@@ -2,6 +2,12 @@
 
 Commencez avec un ordinateur portable sur lequel Linux Mint 22.3 Cinnamon vient d’être installé, sans rien d’autre. Il faut le mot de passe du compte et une connexion internet. Prévoyez une demi-heure ; les téléchargements occupent l’essentiel de ce temps.
 
+Vous préférez regarder d’abord ? Cette vidéo de 5 minutes montre toutes les étapes de cette page, du téléchargement de Linux Mint jusqu’à l’ordinateur prêt. Elle n’a pas de voix : gardez les sous-titres activés (anglais, espagnol ou catalan).
+
+<div style="position:relative;aspect-ratio:16/9;width:100%;margin:1em 0 2em">
+  <iframe src="https://www.youtube-nocookie.com/embed/B49QS7KgN3Y?cc_load_policy=1&amp;cc_lang_pref=en&amp;hl=fr&amp;rel=0" title="AUCOOP Mint video guide" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ## 1. Installer Linux Mint
 
 Rien de particulier : utilisez le programme d’installation normal de Mint depuis une clé USB.

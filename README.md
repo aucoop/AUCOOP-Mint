@@ -77,6 +77,14 @@ On a fresh Linux Mint 22.x Cinnamon install:
 wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
 ```
 
+New to Linux? The 5-minute video guide goes from downloading Linux Mint to a finished laptop. It has no voice; subtitles are in English, Spanish and Catalan.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=B49QS7KgN3Y">
+    <img src="https://img.youtube.com/vi/B49QS7KgN3Y/maxresdefault.jpg" alt="Watch the AUCOOP Mint video guide on YouTube" width="70%">
+  </a>
+</p>
+
 <p align="center">
   <a href="https://aucoop.github.io/AUCOOP-Mint/"><strong>Read the full documentation →</strong></a>
 </p>

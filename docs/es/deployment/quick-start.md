@@ -2,6 +2,12 @@
 
 Empieza con un portátil que tenga Linux Mint 22.3 Cinnamon recién instalado y nada más. Necesitarás la contraseña de la cuenta y conexión a internet. Reserva media hora; pasarás casi todo ese tiempo esperando descargas.
 
+¿Prefieres verlo primero? Este vídeo de 5 minutos muestra todos los pasos de esta página, desde la descarga de Linux Mint hasta el portátil terminado. No tiene voz, así que deja los subtítulos activados.
+
+<div style="position:relative;aspect-ratio:16/9;width:100%;margin:1em 0 2em">
+  <iframe src="https://www.youtube-nocookie.com/embed/B49QS7KgN3Y?cc_load_policy=1&amp;cc_lang_pref=es&amp;hl=es&amp;rel=0" title="AUCOOP Mint video guide" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ## 1. Instalar Linux Mint
 
 No hay ningún paso especial: utiliza el instalador normal de Mint desde una memoria USB.
