@@ -19,6 +19,29 @@ with low-end refurbished hardware in mind.
 
 ---
 
+## Quick start
+
+On a fresh Linux Mint 22.x Cinnamon install:
+
+```bash
+wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
+```
+
+New to Linux? The 5-minute video guide goes from downloading Linux Mint to a finished laptop. It has no voice; subtitles are in English, Spanish and Catalan.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=B49QS7KgN3Y">
+    <img src="https://img.youtube.com/vi/B49QS7KgN3Y/maxresdefault.jpg" alt="Watch the AUCOOP Mint video guide on YouTube" width="70%">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://aucoop.github.io/AUCOOP-Mint/"><strong>Read the full documentation →</strong></a>
+</p>
+
+
+---
+
 ## Why this exists
 
 AUCOOP refurbishes donated laptops and sends them [where they are needed](https://aucoop.upc.edu/projectes-internacionals/). The problem is not only hardware — the last mile is software: people generally used to Windows, often Linux distributions have too much clutter, too many choices, too much friction on first boot.
@@ -66,28 +89,6 @@ AUCOOP Mint is designed for people who need a computer that simply works:
 | **Offline knowledge** | Kiwix support for downloading Wikipedia and similar content |
 | **Local AI option** | Offline chat powered by [llamafile](https://github.com/Mozilla-Ocho/llamafile) |
 | **Traceability** | Device registration through [eReuse / Devicehub](https://www.ereuse.org/) |
-
----
-
-## Quick start
-
-On a fresh Linux Mint 22.x Cinnamon install:
-
-```bash
-wget -qO- https://raw.githubusercontent.com/aucoop/AUCOOP-Mint/master/boot.sh | bash
-```
-
-New to Linux? The 5-minute video guide goes from downloading Linux Mint to a finished laptop. It has no voice; subtitles are in English, Spanish and Catalan.
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=B49QS7KgN3Y">
-    <img src="https://img.youtube.com/vi/B49QS7KgN3Y/maxresdefault.jpg" alt="Watch the AUCOOP Mint video guide on YouTube" width="70%">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://aucoop.github.io/AUCOOP-Mint/"><strong>Read the full documentation →</strong></a>
-</p>
 
 ---
 
